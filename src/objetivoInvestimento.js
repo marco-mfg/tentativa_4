@@ -44,7 +44,31 @@ export async function generateReturnsArray(
         }
 
         const returnsArray = [referenceInvestmentObject]
-        for (let timeReference =1; timeReference <= finalTimeHorizon; timeReference++){
+        console.tab(returnsArray)
 
+        for (let timeReference =1; timeReference <= finalTimeHorizon; timeReference++){
+            const totalAmount = returnsArray[timeReference - 1].totalAmount * finalReturnRate + monthlyContribution
+            //                                                  quantia total (que é o valor inicial) *
+            //                                                  o percentual (1.12, por exemplo) + 
+            //                                                  o depósito daquele mes
+            // exemplo: quantia total = quantia inicial * percentual mensal + valor mensal aplicado
+            // 100 * 1.12 + 100 = 212
+            // 212 * 1.12 + 100 = 337,44
+            // 337,44 ...
+            const interestReturns = returnsArray[timeReference - 1].totalAmount * finalReturnRate
+            // é o valor com rendimento sem a contribuição/depósito mensal
+            const investedAmount = startingAmount + monthlyContribution * timeReference
+            const totalInterestReturns = totalAmount - investedAmount //tudo que eu tenho com juros, menos os valores aplicados
+
+            returnsArray.push(
+                {
+                investedAmount,
+                interestReturns,
+                totalInterestReturns,
+                month: timeReference,
+                totalAmount
+                },
+            )
         }
+    return returnsArray
 }
