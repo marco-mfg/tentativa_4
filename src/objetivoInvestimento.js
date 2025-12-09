@@ -3,24 +3,17 @@ export function convertToMontlyReturnRate(yearlyReturnRate) {
     // taxa de retorno anual
 }
 
-export async function generateReturnsArray(
+export function generateReturnsArray(
     startingAmount = 0, 
-    // amount = quantia
-    // quantia inicial
     timeHorizon = 0, 
-    //horizonte temporal
     timePeriod = 'monthly', 
-    // período de tempo
     monthlyContribution = 0, 
-    // contribuição mensal
     returnRate = 0, 
-    // returnRate = taxa de retorno
-    returnTimeFrame = 'monthly'
-    // período de retorno
+    returnTimeFrame = 'monthly',
 )
     {
         if (!timeHorizon || !startingAmount) {
-            throw new Error('Investimento inicial e prazo devem ser preenchidos com valores positivos.')
+            console.log('Investimento inicial e prazo devem ser preenchidos com valores positivos.')
         }
 
         const finalReturnRate =
@@ -30,8 +23,8 @@ export async function generateReturnsArray(
 
         const finalTimeHorizon = 
             timePeriod === 'monthly'
-            ?timePeriod
-            :timePeriod * 12
+            ?timeHorizon
+            :timeHorizon * 12
 
         const referenceInvestmentObject = {
             investedAmount: startingAmount,
@@ -44,8 +37,8 @@ export async function generateReturnsArray(
         }
 
         const returnsArray = [referenceInvestmentObject]
-        console.tab(returnsArray)
 
+            console.log(finalTimeHorizon)
         for (let timeReference =1; timeReference <= finalTimeHorizon; timeReference++){
             const totalAmount = returnsArray[timeReference - 1].totalAmount * finalReturnRate + monthlyContribution
             //                                                  quantia total (que é o valor inicial) *
