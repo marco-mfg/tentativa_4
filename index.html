@@ -12,7 +12,7 @@
       <h1 class="text-2xl font-bold px-6">Calculadora de Investimentos</h1>
       <form id="investiment-form" class="w-full">
 
-        <div class="flex w-full flex-col px-6 my-2">
+        <div class="flex w-full flex-col px-6 my-2 h-[4.25rem]">
           <label class="font-bold text-gray-700" 
                  for="starting-amount">Investimento inicial</label>
           <div class="flex">
@@ -28,12 +28,11 @@
               id="starting-amount" 
               name="starting-amount" 
               required/>        
-
           </div>
         </div>
 
 
-        <div class="flex w-full flex-col px-6 my-2">
+        <div class="flex w-full flex-col px-6 my-2 h-[4.25rem]">
           <label class="font-bold text-gray-700" 
                  for="additional-contribution">Aportes adicionais</label>
           <div class="flex">
@@ -45,11 +44,10 @@
               id="additional-contribution" 
               name="additional-contribution" 
               >        
-
           </div>
         </div>
 
-        <div class="flex w-full flex-col px-6 my-2">
+        <div class="flex w-full flex-col px-6 my-2 h-[4.25rem]">
           <label class="font-bold text-gray-700" 
                  for="time-amount">Prazo</label>
           <div class="flex">
@@ -77,7 +75,7 @@
         </div>
 
 
-        <div class="flex w-full flex-col px-6 my-2">
+        <div class="flex w-full flex-col px-6 my-2 h-[4.25rem]">
           <label class="font-bold text-gray-700" 
                  for="return-rate">Rentabilidade</label>
           <div class="flex">
@@ -105,7 +103,7 @@
           </div>
         </div>
 
-        <div class="flex w-full flex-col px-6 my-2">
+        <div class="flex w-full flex-col px-6 my-2 h-[4.25rem]">
           <label class="font-bold text-gray-700" 
                  for="tax-rate">Impostos sobre lucro</label>
           <div class="flex">
@@ -128,7 +126,7 @@
                   class="w-1/2 rounded-lg bg-emerald-950 text-slate-200 hover:bg-emerald-800"
                   form="investiment-form"
                   type="submit">Calcular</button>
-          <button class="w-1/2 rounded-lg hover:bg-emerald-500">Limpar</button>
+          <button id="clearForm" class="w-1/2 rounded-lg hover:bg-emerald-500">Limpar</button>
         </div>
     </aside>
     <main>

@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@layer utilites {
+  .error {
+    @apply border-2;
+    @apply border-red-600;
+    @apply rounded-lg;
+  }
+}
+
 /* @theme {
   --color-primary: #2563eb; /* azul Tailwind */
 /*} */
